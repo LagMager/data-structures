@@ -3,11 +3,21 @@ package com.example.datastructures.model.list;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
+/**
+ * A generic linked list implementation.
+ *
+ * @param <T> the type of elements in this list
+ */
 public class LinkedList<T> implements IList<T> {
     private Node<T> head;
     private Node<T> tail;
     private int size;
 
+    /**
+     * A node in the linked list that holds a reference to the next node.
+     *
+     * @param <T> the type of data held by the node
+     */
     private static class Node<T> {
         T data;
         Node<T> next;
@@ -18,8 +28,11 @@ public class LinkedList<T> implements IList<T> {
         }
     }
 
+    /**
+     * Constructs an empty linked list.
+     */
     @Override
-    public void addFirst(T elem) {
+    public void addFirst(final T elem) {
         Node<T> newNode = new Node<>(elem);
         if (isEmpty()) {
             head = newNode;
@@ -32,7 +45,7 @@ public class LinkedList<T> implements IList<T> {
     }
 
     @Override
-    public void addLast(T elem) {
+    public void addLast(final T elem) {
         Node<T> newNode = new Node<>(elem);
         if (isEmpty()) {
             head = newNode;
@@ -93,7 +106,7 @@ public class LinkedList<T> implements IList<T> {
     }
 
     @Override
-    public Boolean contains(T elem) {
+    public Boolean contains(final T elem) {
         Node<T> current = head;
         while (current != null) {
             if (current.data.equals(elem)) {
@@ -104,8 +117,9 @@ public class LinkedList<T> implements IList<T> {
         return false;
     }
 
+
     @Override
-    public void removeElement(T elem) {
+    public void removeElement(final T elem) {
         Node<T> current = head;
         Node<T> prev = null;
         while (current != null) {
@@ -146,7 +160,7 @@ public class LinkedList<T> implements IList<T> {
     }
 
     @Override
-    public void set(Integer index, T elem) {
+    public void set(Integer index, final T elem) {
         if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException("Index out of bounds");
         }
@@ -158,7 +172,7 @@ public class LinkedList<T> implements IList<T> {
     }
 
     @Override
-    public void add(Integer index, T elem) {
+    public void add(Integer index, final T elem) {
         if (index < 0 || index > size) {
             throw new IndexOutOfBoundsException("Index out of bounds");
         }
@@ -198,7 +212,7 @@ public class LinkedList<T> implements IList<T> {
     }
 
     @Override
-    public Integer indexOf(T elem) {
+    public Integer indexOf(final T elem) {
         Node<T> current = head;
         int index = 0;
         while (current != null) {
@@ -212,7 +226,7 @@ public class LinkedList<T> implements IList<T> {
     }
 
     @Override
-    public Integer lastIndexOf(T elem) {
+    public Integer lastIndexOf(final T elem) {
         Node<T> current = head;
         int lastIndex = -1;
         int index = 0;
