@@ -1,10 +1,18 @@
 package com.example.datastructures.model.stack;
 
+/**
+ * A generic stack implementation.
+ *
+ * @param <T> the type of elements in this stack
+ */
 public class Stack<T> implements IStack<T> {
     private static final int INITIAL_CAPACITY = 10;
     private Object[] elements;
     private int size;
 
+    /**
+     * Constructs an empty stack with initial capacity.
+     */
     public Stack() {
         this.elements = new Object[INITIAL_CAPACITY];
         this.size = 0;

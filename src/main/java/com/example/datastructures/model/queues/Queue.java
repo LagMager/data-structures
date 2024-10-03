@@ -1,5 +1,10 @@
 package com.example.datastructures.model.queues;
 
+/**
+ * A generic queue implementation using a circular array.
+ *
+ * @param <T> the type of elements in this queue
+ */
 public class Queue<T> implements IQueue<T> {
     private static final int INITIAL_CAPACITY = 10;
     private Object[] elements;
@@ -7,6 +12,9 @@ public class Queue<T> implements IQueue<T> {
     private int front;
     private int rear;
 
+    /**
+     * Constructs an empty queue with initial capacity.
+     */
     public Queue() {
         this.elements = new Object[INITIAL_CAPACITY];
         this.size = 0;
